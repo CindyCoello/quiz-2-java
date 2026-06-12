@@ -147,6 +147,18 @@ public class PanelJuego extends JPanel {
         return etiqueta;
     }
 
+    /**
+     * Actualiza y dibuja los componentes visuales del panel para presentar una nueva pregunta.
+     * Restablece el campo de texto de respuesta, habilita los botones correspondientes,
+     * enfoca el campo de entrada y actualiza las etiquetas de los marcadores y el turno del jugador.
+     * 
+     * @param pregunta Objeto de tipo Pregunta a mostrar.
+     * @param numeroPregunta El índice visual de la pregunta (1-based).
+     * @param totalPreguntas El número total de preguntas del juego.
+     * @param jugadorActual El identificador del jugador que tiene el turno actual.
+     * @param puntajeJugador1 El puntaje acumulado del jugador 1.
+     * @param puntajeJugador2 El puntaje acumulado del jugador 2.
+     */
     public void mostrarPregunta(Pregunta pregunta, int numeroPregunta, int totalPreguntas, int jugadorActual,
             int puntajeJugador1, int puntajeJugador2) {
         etiquetaTurno.setText("Turno del Jugador " + jugadorActual);
@@ -183,6 +195,16 @@ public class PanelJuego extends JPanel {
         campoRespuesta.requestFocusInWindow();
     }
 
+    /**
+     * Muestra visualmente la retroalimentación al jugador después de enviar una respuesta.
+     * Cambia el color de la retroalimentación (verde si es correcta, rojo si es incorrecta),
+     * inhabilita el campo de entrada y el botón de responder para evitar envíos múltiples,
+     * y hace visible el botón para avanzar a la siguiente pregunta o finalizar.
+     * 
+     * @param esCorrecta Indica si la respuesta del usuario coincide con la correcta.
+     * @param respuestaCorrecta El carácter de la respuesta correcta de la pregunta actual.
+     * @param ultimaPregunta true si es la última pregunta del quiz, false en caso contrario.
+     */
     public void mostrarRetroalimentacion(boolean esCorrecta, char respuestaCorrecta, boolean ultimaPregunta) {
         if (esCorrecta) {
             etiquetaRetroalimentacion.setText("Respuesta correcta. Sumaste 1 punto.");

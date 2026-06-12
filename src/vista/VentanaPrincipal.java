@@ -37,6 +37,13 @@ public class VentanaPrincipal extends JFrame {
         setContentPane(contenedor);
     }
 
+    /**
+     * Alterna la vista/panel visible actualmente en la ventana principal.
+     * Utiliza un CardLayout para intercambiar entre las pantallas de
+     * bienvenida, de juego y de resultados finales.
+     * 
+     * @param nombreVista El identificador de la vista a mostrar (e.g. VISTA_BIENVENIDA, VISTA_JUEGO, VISTA_RESULTADO).
+     */
     public void mostrarVista(String nombreVista) {
         cardLayout.show(contenedor, nombreVista);
     }

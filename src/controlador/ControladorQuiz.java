@@ -29,6 +29,13 @@ public class ControladorQuiz implements ActionListener {
         ventanaPrincipal.getPanelJuego().getCampoRespuesta().addActionListener(this);
     }
 
+    /**
+     * Captura y procesa todos los eventos de acción de la interfaz gráfica.
+     * Determina qué botón o componente del panel de bienvenida, de juego o de resultados
+     * generó el evento y ejecuta la acción correspondiente (iniciar, responder o continuar).
+     * 
+     * @param e El evento de acción capturado.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         Object origen = e.getSource();
@@ -53,7 +60,12 @@ public class ControladorQuiz implements ActionListener {
         ventanaPrincipal.mostrarVista(VentanaPrincipal.VISTA_JUEGO);
     }
 
-    // Lee la letra escrita por el jugador y valida que este entre A y E.
+    /**
+     * Recupera y valida la respuesta ingresada por el jugador actual.
+     * Verifica que la respuesta consista exactamente de un solo carácter entre 'A' y 'E'
+     * (sin importar si es mayúscula o minúscula). Si es válida, consulta al modelo si la
+     * respuesta es correcta y le indica a la vista que muestre la retroalimentación correspondiente.
+     */
     private void procesarRespuesta() {
         PanelJuego panelJuego = ventanaPrincipal.getPanelJuego();
         String textoRespuesta = panelJuego.getTextoRespuesta();
@@ -79,6 +91,11 @@ public class ControladorQuiz implements ActionListener {
                 ultimaPregunta);
     }
 
+    /**
+     * Avanza el estado del juego a la siguiente pregunta.
+     * Si no hay más preguntas disponibles en el modelo, finaliza la partida
+     * y procede a mostrar la pantalla de resultados finales.
+     */
     private void continuarJuego() {
         if (juegoQuiz.avanzarPregunta()) {
             actualizarPanelDeJuego();

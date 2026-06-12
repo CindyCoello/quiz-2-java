@@ -41,6 +41,14 @@ public class JuegoQuiz {
         return indiceActual % 2 == 0 ? 1 : 2;
     }
 
+    /**
+     * Verifica si la respuesta seleccionada por el jugador actual es correcta.
+     * Compara el carácter de la respuesta (normalizado a mayúsculas) con la respuesta correcta
+     * de la pregunta activa. Si coincide, incrementa el puntaje del jugador que tiene el turno.
+     * 
+     * @param respuesta El carácter ('A'-'E') seleccionado por el jugador.
+     * @return true si la respuesta es correcta, false de lo contrario.
+     */
     public boolean verificarRespuesta(char respuesta) {
         char respuestaNormalizada = Character.toUpperCase(respuesta);
         boolean esCorrecta = respuestaNormalizada == getPreguntaActual().getRespuestaCorrecta();
@@ -60,6 +68,12 @@ public class JuegoQuiz {
         return getPreguntaActual().getRespuestaCorrecta();
     }
 
+    /**
+     * Incrementa el índice para pasar a la siguiente pregunta si no se ha alcanzado
+     * el límite del banco de preguntas.
+     * 
+     * @return true si se avanzó con éxito, false si ya se estaba en la última pregunta.
+     */
     public boolean avanzarPregunta() {
         if (indiceActual < preguntas.length - 1) {
             indiceActual++;
@@ -81,6 +95,13 @@ public class JuegoQuiz {
         return "Empate";
     }
 
+    /**
+     * Crea e inicializa el banco de preguntas completo del juego.
+     * Define enunciados, opciones y respuestas correctas en arreglos paralelos
+     * y luego los consolida instanciando objetos de tipo Pregunta.
+     * 
+     * @return Un arreglo de objetos Pregunta que conforman el juego.
+     */
     private Pregunta[] crearBancoDePreguntas() {
         // Arrays pedidos por la tarea para guardar preguntas, opciones y respuestas correctas.
         String[] enunciados = {

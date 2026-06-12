@@ -71,6 +71,15 @@ public class PanelResultado extends JPanel {
         add(contenedor, BorderLayout.CENTER);
     }
 
+    /**
+     * Muestra las puntuaciones definitivas y el veredicto del juego.
+     * Actualiza las etiquetas correspondientes con los puntajes finales de ambos jugadores
+     * e indica si hubo un ganador o si el juego terminó en empate.
+     * 
+     * @param puntajeJugador1 Puntaje final del jugador 1.
+     * @param puntajeJugador2 Puntaje final del jugador 2.
+     * @param resultadoFinal Cadena de texto indicando el ganador o empate.
+     */
     public void mostrarResultado(int puntajeJugador1, int puntajeJugador2, String resultadoFinal) {
         etiquetaPuntajes.setText("Puntaje final - Jugador 1: " + puntajeJugador1 + " | Jugador 2: " + puntajeJugador2);
         etiquetaGanador.setText(resultadoFinal);
