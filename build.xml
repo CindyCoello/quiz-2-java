@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- By default, it looks for the build.xml file in the same directory. -->
+<project name="quiz-2-java" default="default" basedir=".">
+    <description>Builds, tests, and runs the project quiz-2-java.</description>
+    <import file="nbproject/build-impl.xml"/>
+</project>
